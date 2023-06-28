@@ -9,8 +9,7 @@ import { Appointment } from 'devextreme/ui/scheduler';
   templateUrl: './tooltip.component.html',
 })
 export class TooltipComponent {
-  @Input()
-    appointmentData!: Appointment;
+  @Input() appointmentData!: Appointment;
 
   @Input() markerColor!: string;
 
