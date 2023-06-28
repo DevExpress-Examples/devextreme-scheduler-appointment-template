@@ -111,7 +111,6 @@ const data: Data[] = [
 
 @Injectable()
 export class Service {
-
   getEmployees(): Employee[] {
     return employees;
   }
