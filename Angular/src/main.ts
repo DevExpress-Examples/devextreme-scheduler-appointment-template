@@ -9,4 +9,4 @@ if (environment.production || !document.location.host.includes('localhost')) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
+  .catch((err) => console.error(err)); // eslint-disable-line no-console
