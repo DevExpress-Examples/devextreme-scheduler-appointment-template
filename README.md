@@ -6,3 +6,4 @@
 
 <p>This example demonstrates how to implement the appointment layout with the appointment template. You can use the example to customize our default appointment appearance. For example, you can add a new button, change delete button functionality, etc.</p>
 
+TEST
