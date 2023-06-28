@@ -111,7 +111,6 @@ const data: Data[] = [
 
 @Injectable()
 export class Service {
-  allows?: ['private readonly'];
 
   getEmployees(): Employee[] {
     return employees;
