@@ -24,30 +24,23 @@
   </dxi-resource>
 
   <ng-container *dxTemplate="let data of 'appointmentTooltipTemplate'">
-
-    <!-- NOTE: You can use data.appointmentData.resouceId to obtain resource color -->                                  
+    <!-- NOTE: You can use data.appointmentData.resouceId to obtain resource color -->
     <Tooltip
-        [appointmentData]="data.appointmentData"
-        [isDeleteButtonExist]="isDeleteButtonExist(data)"
-        [markerColor]="getColor | apply : data.appointmentData.employeeID"
-        (onDeleteButtonClick)="onDeleteButtonClick($event, data.appointmentData)"
+      [appointmentData]="data.appointmentData"
+      [isDeleteButtonExist]="isDeleteButtonExist(data)"
+      [markerColor]="getColor | apply : data.appointmentData.employeeID"
+      (onDeleteButtonClick)="onDeleteButtonClick($event, data.appointmentData)"
     ></Tooltip>
   </ng-container>
 
   <div *dxTemplate="let employee of 'resourceCellTemplate'">
-    <div 
-      class="name" 
-      [style.background]="employee.color"
-    >
+    <div class="name" [style.background]="employee.color">
       <h2>{{ employee.text }}</h2>
     </div>
     <div class="avatar">
       <img [src]="employee.data.avatar" />
     </div>
-    <div 
-      class="info" 
-      [style.color]="employee.color"
-    >
+    <div class="info" [style.color]="employee.color">
       <div>Age: {{ employee.data.age }}</div>
       <div>
         <b>{{ employee.data.discipline }}</b>
@@ -60,11 +53,8 @@
     class="employee-weekend"
     [ngClass]="markWeekEnd | apply : cellData"
   >
-    <div 
-      class="day-cell" 
-      [ngClass]="markTraining | apply : cellData"
-    >
-      {{cellData.text}}
+    <div class="day-cell" [ngClass]="markTraining | apply : cellData">
+      {{ cellData.text }}
     </div>
   </div>
 </dx-scheduler>
