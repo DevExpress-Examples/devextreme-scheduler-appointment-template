@@ -1,8 +1,10 @@
+import React from 'react';
+
 function ResourceCell(props: any): JSX.Element {
   const { data: { color, text, data: { avatar, age, discipline } } } = props;
-  
-    return (
-      <div className="dx-template-wrapper">
+
+  return (
+    <div className="dx-template-wrapper">
       <div className="name" style={{ background: color }}>
         <h2>{text}</h2>
       </div>
@@ -15,7 +17,7 @@ function ResourceCell(props: any): JSX.Element {
         <b>{discipline}</b>
       </div>
     </div>
-    );
-  }
-  
-  export default ResourceCell;
+  );
+}
+
+export default ResourceCell;
