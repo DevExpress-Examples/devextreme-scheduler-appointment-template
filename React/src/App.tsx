@@ -1,4 +1,6 @@
-import React, { useRef, useCallback } from 'react';
+import React, {
+  useRef, useMemo, useCallback, RefObject,
+} from 'react';
 import './App.css';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
 
@@ -13,30 +15,31 @@ import Tooltip from './Tooltip';
 
 const currentDate = new Date(2021, 5, 2, 11, 30);
 const groups = ['employeeID'];
-const views = ['month'] as any;
+const views = ['month'] as ['month'];
 
-function App(): JSX.Element {
-  const schedulerRef = useRef(null);
+function getDisabled(employeeID: number): boolean | undefined {
+  return employees.find((employee: Employee) => employee.id === employeeID)?.disabled;
+}
 
-  const appointmentTooltip = useCallback((props: AppointmentTooltipTemplateData): JSX.Element => {
-    const scheduler = schedulerRef.current as any;
+function getColor(employeeID: number): string | undefined {
+  return employees.find((employee: Employee) => employee.id === employeeID)?.color;
+}
+
+function createAppointmentTooltip(schedulerRef: RefObject<Scheduler>) {
+  return function AppointmentTooltip({ data: props }: { data: AppointmentTooltipTemplateData }): JSX.Element {
+    const scheduler = schedulerRef.current;
     const onDeleteButtonClick = useCallback((e: ClickEvent): void => {
-      scheduler.instance.deleteAppointment(props.appointmentData);
+      scheduler?.instance.deleteAppointment(props.appointmentData);
       e.event?.stopPropagation();
-      scheduler.instance.hideAppointmentTooltip();
+      scheduler?.instance.hideAppointmentTooltip();
     }, []);
-
-    function getDisabled(employeeID: number): boolean | undefined {
-      return employees.find((employee: Employee) => employee.id === employeeID)?.disabled;
-    }
-
-    function getColor(employeeID: number): string | undefined {
-      return employees.find((employee: Employee) => employee.id === employeeID)?.color;
-    }
 
     const color = getColor(props.appointmentData.employeeID);
 
-    const isDeleteButtonExist = !getDisabled(props.appointmentData.employeeID) && ((scheduler.instance.option('editing') && scheduler.instance.option('editing.allowDeleting') === true) || scheduler.instance.option('editing') === true);
+    const isEditing = scheduler?.instance.option('editing');
+    const isAllowDeleting = scheduler?.instance.option('editing.allowDeleting') === true;
+    const isDeleteButtonExist = !getDisabled(props.appointmentData.employeeID)
+      && ((isEditing && isAllowDeleting) || isEditing === true);
 
     return (
       <Tooltip
@@ -46,7 +49,13 @@ function App(): JSX.Element {
         color={color}
       />
     );
-  }, []);
+  };
+}
+
+function App(): JSX.Element {
+  const schedulerRef = useRef<Scheduler>(null);
+
+  const appointmentTooltip = useMemo(() => createAppointmentTooltip(schedulerRef), []);
 
   return (
     <Scheduler
@@ -64,7 +73,7 @@ function App(): JSX.Element {
       firstDayOfWeek={1}
       startDayHour={8}
       endDayHour={18}
-      appointmentTooltipRender={appointmentTooltip}
+      appointmentTooltipComponent={appointmentTooltip}
     >
       <Resource
         label='Employee'
