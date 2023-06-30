@@ -8,9 +8,7 @@ function ResourceCell(props: any): JSX.Element {
 
   function getCurrentTraining(date: number, employeeID: number): string {
     const result = (date + employeeID) % 3;
-    const currentTraining = `training-background-${result}`;
-
-    return currentTraining;
+    return `training-background-${result}`;
   }
 
   const { data: { startDate, groups: { employeeID }, text } } = props;
