@@ -24,7 +24,6 @@ export class AppComponent {
 
   resourcesDataSource = this.service.getEmployees();
 
-  // eslint-disable-next-line @typescript-eslint/no-parameter-properties
   constructor(private readonly service: Service) {
   }
 
@@ -62,9 +61,7 @@ export class AppComponent {
 
   private readonly getCurrentTrainingClass = (date: number, employeeID: number): string => {
     const result = (date + employeeID) % 3;
-    const currentTraining = `training-background-${result}`;
-
-    return currentTraining;
+    return `training-background-${result}`;
   };
 
   private readonly isWeekEnd = (date: Date): boolean => {
