@@ -29,10 +29,10 @@ function createAppointmentTooltip(schedulerRef: RefObject<Scheduler>) {
   return function AppointmentTooltip({ data: props }: { data: AppointmentTooltipTemplateData }): JSX.Element {
     const scheduler = schedulerRef.current;
     const onDeleteButtonClick = useCallback((e: ClickEvent): void => {
-      scheduler?.instance.deleteAppointment(props.appointmentData);
+      schedulerRef.current?.instance.deleteAppointment(props.appointmentData);
       e.event?.stopPropagation();
-      scheduler?.instance.hideAppointmentTooltip();
-    }, []);
+      schedulerRef.current?.instance.hideAppointmentTooltip();
+    }, [props.appointmentData]);
 
     const color = getColor(props.appointmentData.employeeID);
 

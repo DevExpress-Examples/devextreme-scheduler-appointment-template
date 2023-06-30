@@ -1,16 +1,17 @@
 import React from 'react';
 
-function ResourceCell(props: any): JSX.Element {
-  function isWeekEnd(date: Date): boolean {
-    const day = date.getDay();
-    return day === 0 || day === 6;
-  }
+function isWeekEnd(date: Date): boolean {
+  const day = date.getDay();
+  return day === 0 || day === 6;
+}
 
-  function getCurrentTraining(date: number, employeeID: number): string {
-    const result = (date + employeeID) % 3;
-    return `training-background-${result}`;
-  }
+function getCurrentTraining(date: number, employeeID: number): string {
+  const result = (date + employeeID) % 3;
 
+  return `training-background-${result}`;
+}
+
+function DataCell(props: any): JSX.Element {
   const { data: { startDate, groups: { employeeID }, text } } = props;
   const dayClasses = [
     'day-cell',
@@ -31,4 +32,4 @@ function ResourceCell(props: any): JSX.Element {
   );
 }
 
-export default ResourceCell;
+export default DataCell;

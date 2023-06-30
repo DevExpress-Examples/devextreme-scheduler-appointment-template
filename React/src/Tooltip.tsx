@@ -1,11 +1,20 @@
 import { ClickEvent } from 'devextreme/ui/button';
 import { Button } from 'devextreme-react';
 import React, { useCallback } from 'react';
+import { AppointmentTooltipTemplateData } from 'devextreme/ui/scheduler';
 
-function Tooltip(props: any): JSX.Element {
+interface TooltipProps extends AppointmentTooltipTemplateData {
+  isDeleteButtonExist: boolean;
+
+  onDeleteButtonClick: Function;
+
+  color: string | undefined;
+}
+
+function Tooltip(props: TooltipProps): JSX.Element {
   const onDeleteButtonClick = useCallback((e: ClickEvent) => {
     props.onDeleteButtonClick(e);
-  }, []);
+  }, [props.onDeleteButtonClick]);
 
   return (
     <div className="dx-tooltip-appointment-item">
@@ -23,7 +32,7 @@ function Tooltip(props: any): JSX.Element {
             {props.appointmentData.text}
           </div>
           <div className="dx-tooltip-appointment-item-content-date">
-            {props.appointmentData.startDate.toString()}
+            {props.appointmentData.startDate?.toString()}
           </div>
         </div>
       </div>
