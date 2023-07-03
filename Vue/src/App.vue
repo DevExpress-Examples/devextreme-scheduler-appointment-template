@@ -82,7 +82,7 @@ export default defineComponent({
       return (this.$refs[schedulerRefKey] as any).instance;
     }
   },
-  methods:{
+  methods: {
     onDeleteButtonClick(e: ClickEvent, data: AppointmentTooltipTemplateData) {
       this.scheduler.deleteAppointment(data.appointmentData);
       e.event?.stopPropagation();

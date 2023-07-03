@@ -60,7 +60,7 @@ export default {
       employees,
     };
   },
-  methods : {
+  methods: {
     onClick(e: ClickEvent) {
       this.$emit('delete-button-click', e);
     },
