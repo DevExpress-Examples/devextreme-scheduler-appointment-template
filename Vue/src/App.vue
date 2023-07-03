@@ -56,6 +56,7 @@ import ResourceCell from './ResourceCell.vue';
 import TooltipTemplate from './TooltipTemplate.vue';
 import type { AppointmentTooltipTemplateData } from 'devextreme/ui/scheduler';
 import type { ClickEvent } from 'devextreme/ui/button';
+import type dxScheduler from 'devextreme/ui/scheduler';
 const schedulerRefKey = 'my-scheduler';
 
 export default defineComponent({
@@ -77,7 +78,7 @@ export default defineComponent({
     };
   },
   computed: {
-    scheduler: function() {
+    scheduler: function(): dxScheduler {
       return (this.$refs[schedulerRefKey] as any).instance;
     }
   },
