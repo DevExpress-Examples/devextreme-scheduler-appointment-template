@@ -10,7 +10,7 @@
 
 <p>This example demonstrates how to implement the appointment layout with the appointment template. You can use the example to customize our default appointment appearance. For example, you can add a new button, change delete button functionality, etc.</p>
 
-<div align="center"><img alt="Scheduler for DevExtreme - How to implement the appointment layout with the appointment template" src="appointment-template.png" /></div>
+<div align="center"><img alt="Scheduler for DevExtreme - How to implement the appointment layout with the appointment template" src="appointment-tooltip-template.png" /></div>
 
 ## Files to Review
 
