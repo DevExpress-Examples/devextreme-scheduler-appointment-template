@@ -1,0 +1,89 @@
+@model IEnumerable<ASP_NET_Core.Models.WorkoutAppointment>
+
+@(Html.DevExtreme().Scheduler()
+    .DataSource(Model)
+    .TimeZone("America/Los_Angeles")
+    .TextExpr("Text")
+    .StartDateExpr("StartDate")
+    .EndDateExpr("EndDate")
+    .Views(new[] { SchedulerViewType.Month })
+    .CurrentView(SchedulerViewType.Month)
+    .CurrentDate(new DateTime(2021, 6, 2, 11, 30, 0))
+    .FirstDayOfWeek(FirstDayOfWeek.Monday)
+    .StartDayHour(8)
+    .EndDayHour(19)
+    .ShowAllDayPanel(false)
+    .Height(710)
+    .Groups(new[] { "EmployeeID" })
+    .Resources(res =>
+    {
+        res.Add()
+        .FieldExpr("EmployeeID")
+        .ColorExpr("Color")
+        .DisplayExpr("Text")
+        .ValueExpr("Id")
+        .AllowMultiple(false)
+        .Label("Employee")
+        .DataSource(new[] {
+            new {
+                Id = 1,
+                Text = "John Heart",
+                Color = "var(--background-color-1)",
+                Avatar = "https://js.devexpress.com/Angular/Demos/WidgetsGallery/JSDemos/images/employees/19.png",
+                Age = 27,
+                Discipline = "ABS, Fitball, StepFit"
+            },
+            new {
+                Id = 2,
+                Text = "Sandra Johnson",
+                Color = "var(--background-color-2)",
+                Avatar = "https://js.devexpress.com/Angular/Demos/WidgetsGallery/JSDemos/images/employees/31.png",
+                Age = 25,
+                Discipline = "ABS, Fitball, StepFit"
+            }
+        });
+    })
+    .DataCellTemplate(new JS("dataCellTemplate"))
+    .ResourceCellTemplate(@<text>
+        <div>
+            <div class="name" style="background-color: <%- data.Color %>;">
+                <h2><%- data.Text %></h2>
+            </div>
+            <div class="avatar" title="<%- data.Text %>">
+                <img src="<%- data.Avatar %>" alt="" />
+            </div>
+            <div class="info" style="color: <%- data.Color %>;">
+                Age: <%- data.Age %> <br />
+                <b><%- data.Discipline %></b>
+            </div>
+        </div>
+    </text>)
+)
+
+<script>
+    function isWeekEnd(date) {
+        let day = date.getDay();
+        return day === 0 || day === 6;
+    }
+
+    function getCurrentTraining(date, employeeID) {
+        let result = (date + employeeID) % 3;
+        let currentTraining = "training-background-" + result;
+
+        return currentTraining;
+    }
+
+    function dataCellTemplate(cellData, index, container) {
+        let employeeID = cellData.groups.EmployeeID;
+        let currentTraining = getCurrentTraining(cellData.startDate.getDate(), employeeID);
+        let wrapper = $('<div>')
+            .toggleClass('employee-weekend-' + employeeID, isWeekEnd(cellData.startDate)).appendTo(container)
+            .addClass('employee-' + employeeID)
+            .addClass('dx-template-wrapper');
+        wrapper.append($('<div>')
+            .text(cellData.text)
+            .addClass(currentTraining)
+            .addClass('day-cell')
+        );
+    }
+</script>
