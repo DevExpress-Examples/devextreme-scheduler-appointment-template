@@ -46,6 +46,7 @@
 </template>
 
 <script lang="ts">
+import './assets/main.css';
 import { defineComponent } from 'vue';
 import { DxScheduler, DxResource } from 'devextreme-vue/scheduler';
 

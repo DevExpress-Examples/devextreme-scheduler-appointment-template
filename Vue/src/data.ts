@@ -29,8 +29,7 @@ export const employees: Employee[] = [
     text: 'John Heart',
     id: 1,
     color: '#56ca85',
-    avatar:
-        'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/coach-man.png',
+    avatar: '/images/coach-man.png',
     age: 27,
     discipline: 'ABS, Fitball, StepFit'
   },
@@ -38,8 +37,7 @@ export const employees: Employee[] = [
     text: 'Sandra Johnson',
     id: 2,
     color: '#ff9747',
-    avatar:
-        'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/coach-woman.png',
+    avatar: '/images/coach-woman.png',
     age: 25,
     discipline: 'ABS, Fitball, StepFit'
   }
