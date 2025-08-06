@@ -28,14 +28,14 @@ export const employees: Employee[] = [{
   text: 'John Heart',
   id: 1,
   color: '#56ca85',
-  avatar: `${process.env.PUBLIC_URL}/images/coach-man.png`,
+  avatar: '/images/coach-man.png',
   age: 27,
   discipline: 'ABS, Fitball, StepFit',
 }, {
   text: 'Sandra Johnson',
   id: 2,
   color: '#ff9747',
-  avatar: `${process.env.PUBLIC_URL}/images/coach-woman.png`,
+  avatar: '/images/coach-woman.png',
   age: 25,
   discipline: 'ABS, Fitball, StepFit',
 }];

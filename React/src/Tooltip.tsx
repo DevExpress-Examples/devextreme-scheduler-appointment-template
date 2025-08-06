@@ -1,7 +1,7 @@
-import { ClickEvent } from 'devextreme/ui/button';
+import { type ClickEvent } from 'devextreme/ui/button';
 import { Button } from 'devextreme-react';
 import React, { useCallback } from 'react';
-import { AppointmentTooltipTemplateData } from 'devextreme/ui/scheduler';
+import { type AppointmentTooltipTemplateData } from 'devextreme/ui/scheduler';
 
 interface TooltipProps extends AppointmentTooltipTemplateData {
   isDeleteButtonExist: boolean;

@@ -1,5 +1,3 @@
-import React from 'react';
-
 function ResourceCell(props: any): JSX.Element {
   const { data: { color, text, data: { avatar, age, discipline } } } = props;
 

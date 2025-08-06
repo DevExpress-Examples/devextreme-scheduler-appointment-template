@@ -1,14 +1,14 @@
-import React, {
-  useRef, useMemo, useCallback, RefObject,
+import {
+  useRef, useMemo, useCallback, type RefObject,
 } from 'react';
 import './App.css';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
 
-import Scheduler, { Resource } from 'devextreme-react/scheduler';
-import { ClickEvent } from 'devextreme/ui/button';
-import { AppointmentTooltipTemplateData } from 'devextreme/ui/scheduler';
+import Scheduler, { Resource, type SchedulerRef } from 'devextreme-react/scheduler';
+import { type ClickEvent } from 'devextreme/ui/button';
+import type { AppointmentTooltipTemplateData } from 'devextreme/ui/scheduler';
 
-import { employees, data, Employee } from './data';
+import { employees, data, type Employee } from './data';
 import DataCell from './DataCell';
 import ResourceCell from './ResourceCell';
 import Tooltip from './Tooltip';
@@ -25,19 +25,19 @@ function getColor(employeeID: number): string | undefined {
   return employees.find((employee: Employee) => employee.id === employeeID)?.color;
 }
 
-function createAppointmentTooltip(schedulerRef: RefObject<Scheduler>) {
+function createAppointmentTooltip(schedulerRef: RefObject<SchedulerRef>) {
   return function AppointmentTooltip({ data: props }: { data: AppointmentTooltipTemplateData }): JSX.Element {
     const scheduler = schedulerRef.current;
     const onDeleteButtonClick = useCallback((e: ClickEvent): void => {
-      schedulerRef.current?.instance.deleteAppointment(props.appointmentData);
+      schedulerRef.current?.instance().deleteAppointment(props.appointmentData);
       e.event?.stopPropagation();
-      schedulerRef.current?.instance.hideAppointmentTooltip();
+      schedulerRef.current?.instance().hideAppointmentTooltip();
     }, [props.appointmentData]);
 
     const color = getColor(props.appointmentData.employeeID);
 
-    const isEditing = scheduler?.instance.option('editing');
-    const isAllowDeleting = scheduler?.instance.option('editing.allowDeleting') === true;
+    const isEditing = scheduler?.instance().option('editing');
+    const isAllowDeleting = scheduler?.instance().option('editing.allowDeleting') === true;
     const isDeleteButtonExist = !getDisabled(props.appointmentData.employeeID)
       && ((isEditing && isAllowDeleting) || isEditing === true);
 
@@ -53,7 +53,7 @@ function createAppointmentTooltip(schedulerRef: RefObject<Scheduler>) {
 }
 
 function App(): JSX.Element {
-  const schedulerRef = useRef<Scheduler>(null);
+  const schedulerRef = useRef<SchedulerRef>(null);
 
   const appointmentTooltip = useMemo(() => createAppointmentTooltip(schedulerRef), []);
 

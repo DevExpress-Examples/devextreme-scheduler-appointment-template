@@ -16,11 +16,31 @@
 }
 
 .avatar {
-    width: 155px;
+    width: 124px;
     float: left;
     overflow: hidden;
     position: relative;
-    height: 125px;
+    height: 124px;
+    border: 1px solid rgb(0 0 0 / 24%);
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 100%);
+}
+
+.avatar img {
+  position: relative;
+  width: 126px;
+  height: 130px;
+  object-fit: contain;
+}
+
+ .avatar[title="John Heart"] img {
+  top: 5px;
+  left: 3px;
+}
+
+.avatar[title="Greta Sims"] img {
+  top: 5px;
+  left: -7px;
 }
 
 .name {
@@ -75,15 +95,15 @@
 }
 
 .training-background-0 {
-    background-image: url("https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/icon-abs.png");
+  background-image: url("../public/images/icon-abs.png");
 }
 
 .training-background-1 {
-    background-image: url("https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/icon-step.png");
+  background-image: url("../public/images/icon-step.png");
 }
 
 .training-background-2 {
-    background-image: url("https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/icon-fitball.png");
+  background-image: url("../public/images/icon-fitball.png");
 }
 
 .dx-theme-material .name h2 {

@@ -71,15 +71,15 @@ export default {
   }
 
   .training-background-0 {
-    background-image: url("https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/icon-abs.png");
+  background-image: url('@/assets/images/icon-abs.png');
   }
 
   .training-background-1 {
-    background-image: url("https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/icon-step.png");
+    background-image: url('@/assets/images/icon-step.png');
   }
 
   .training-background-2 {
-    background-image: url("https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/icon-fitball.png");
+    background-image: url('@/assets/images/icon-fitball.png');
   }
 
   .dx-theme-material .name h2 {
