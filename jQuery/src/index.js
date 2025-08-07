@@ -110,14 +110,14 @@ const employees = [{
   text: 'John Heart',
   id: 1,
   color: '#56ca85',
-  avatar: 'https://js.devexpress.com/Angular/Demos/WidgetsGallery/JSDemos/images/employees/19.png',
+  avatar: '../public/images/coach-man.png',
   age: 27,
   discipline: 'ABS, Fitball, StepFit',
 }, {
   text: 'Sandra Johnson',
   id: 2,
   color: '#ff9747',
-  avatar: 'https://js.devexpress.com/Angular/Demos/WidgetsGallery/JSDemos/images/employees/31.png',
+  avatar: '../public/images/coach-woman.png',
   age: 25,
   discipline: 'ABS, Fitball, StepFit',
 }];
