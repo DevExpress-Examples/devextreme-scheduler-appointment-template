@@ -33,14 +33,14 @@
   object-fit: contain;
 }
 
- .avatar[title="John Heart"] img {
-  top: 5px;
-  left: 3px;
+.avatar[title="John Heart"] img {
+	top: -3px;
+	left: -2px;
 }
 
-.avatar[title="Greta Sims"] img {
-  top: 5px;
-  left: -7px;
+.avatar[title="Sandra Johnson"] img {
+	top: -3px;
+	left: -2px;
 }
 
 .name {

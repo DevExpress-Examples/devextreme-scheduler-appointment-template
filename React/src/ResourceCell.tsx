@@ -6,7 +6,7 @@ function ResourceCell(props: any): JSX.Element {
       <div className="name" style={{ background: color }}>
         <h2>{text}</h2>
       </div>
-      <div className="avatar">
+      <div className="avatar" title={text}>
         <img src={avatar} />
       </div>
       <div className="info" style={{ color }}>

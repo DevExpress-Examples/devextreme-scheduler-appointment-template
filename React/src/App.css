@@ -1,76 +1,97 @@
-.dx-scheduler-date-table-other-month.dx-scheduler-date-table-cell {
-  opacity: 1;
-  color: rgba(0 0 0 / 30%);
+.dx-scheduler-group-header,
+.dx-scheduler-date-table-cell {
+    position: relative;
 }
 
-.dx-template-wrapper,
-.dx-scheduler-date-table-cell {
-  position: relative;
+.dx-scheduler-date-table-other-month.dx-scheduler-date-table-cell {
+    opacity: 1;
+    color: rgba(0 0 0 / 30%);
 }
 
 .dx-scheduler-date-table-cell .dx-template-wrapper {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  padding-right: 6px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding-right: 6px;
 }
 
 .avatar {
-  width: 155px;
-  float: left;
-  overflow: hidden;
+    width: 124px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    height: 124px;
+    border: 1px solid rgb(0 0 0 / 24%);
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 100%);
+}
+
+.avatar img {
   position: relative;
-  height: 125px;
+  width: 126px;
+  height: 130px;
+  object-fit: contain;
+}
+
+.avatar[title="John Heart"] img {
+	top: -3px;
+	left: -2px;
+}
+
+.avatar[title="Sandra Johnson"] img {
+	top: -3px;
+	left: -2px;
 }
 
 .name {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .name h2 {
-  color: #fff;
-  text-align: left;
-  padding: 0 0 5px 175px;
-  margin: 0;
+    color: #fff;
+    text-align: left;
+    padding: 0 0 5px 175px;
+    margin: 0;
 }
 
 .info {
-  width: auto;
-  text-align: left;
-  height: 100%;
-  font-size: 11pt;
-  font-weight: normal;
-  padding: 25px 20px;
-  color: #707070;
+    width: auto;
+    text-align: left;
+    height: 100%;
+    font-size: 11pt;
+    font-weight: normal;
+    padding: 25px 20px;
+    color: #707070;
 }
 
 .dx-color-scheme-contrast .info {
-  color: #fff;
+    color: #fff;
 }
 
 .day-cell {
-  height: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .employee-1 {
-  background-color: rgba(86 202 133 / 10%);
+    background-color: rgba(86 202 133 / 10%);
 }
 
 .employee-2 {
-  background-color: rgba(255 151 71 / 10%);
+    background-color: rgba(255 151 71 / 10%);
 }
 
 .employee-weekend-1 {
-  background-color: rgba(86 202 133 / 20%);
+    background-color: rgba(86 202 133 / 20%);
 }
 
 .employee-weekend-2 {
-  background-color: rgba(255 151 71 / 20%);
+    background-color: rgba(255 151 71 / 20%);
 }
 
 .training-background-0 {
@@ -86,5 +107,5 @@
 }
 
 .dx-theme-material .name h2 {
-  font-size: 28px;
+    font-size: 28px;
 }
