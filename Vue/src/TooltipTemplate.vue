@@ -1,23 +1,22 @@
 <template>
   <div>
     <div class="dx-tooltip-appointment-item">
-
       <div class="dx-tooltip-appointment-item-marker">
         <div
           class="dx-tooltip-appointment-item-marker-body"
-          :style="{backgroundColor: markerColor}"
+          :style="{ backgroundColor: markerColor }"
         />
       </div>
+
       <div class="dx-tooltip-appointment-item-content">
-        <div class="dx-tooltip-appointment-item-content">
-          <div class="dx-tooltip-appointment-item-content-subject">
-            {{ data.appointmentData.text }}
-          </div>
-          <div class="dx-tooltip-appointment-item-content-date">
-            {{ data.appointmentData.startDate.toString() }}
-          </div>
+        <div class="dx-tooltip-appointment-item-content-subject">
+          {{ data.appointmentData.text }}
+        </div>
+        <div class="dx-tooltip-appointment-item-content-date">
+          {{ data.appointmentData.startDate.toString() }}
         </div>
       </div>
+
       <div
         v-if="isDeleteButtonExist"
         class="dx-tooltip-appointment-item-delete-button-container"
@@ -32,43 +31,23 @@
     </div>
   </div>
 </template>
-<script lang='ts'>
 
+<script lang="ts" setup>
 import { DxButton } from 'devextreme-vue/button';
-import { employees } from './data.js';
 import type { ClickEvent } from 'devextreme/ui/button';
 
-export default {
-  components: {
-    DxButton,
-  },
-  props: {
-    data: {
-      type: Object,
-      default: () => {},
-    },
-    markerColor: {
-      type: String,
-      default: ''
-    },
-    isDeleteButtonExist: {
-      type: Boolean
-    }
-  },
-  data() {
-    return {
-      employees,
-    };
-  },
-  methods: {
-    onClick(e: ClickEvent) {
-      this.$emit('delete-button-click', e);
-    },
+defineProps<{
+  data: { appointmentData: { text: string; startDate: Date } }
+  markerColor: string | undefined;
+  isDeleteButtonExist: boolean | undefined;
+}>();
 
-  },
-};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const emit = defineEmits<{
+  (event: 'delete-button-click', value: ClickEvent): void;
+}>();
+
+function onClick(e: ClickEvent) {
+  emit('delete-button-click', e); 
+}
 </script>
-  <style>
-
-  </style>
-
