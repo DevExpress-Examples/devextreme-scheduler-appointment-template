@@ -42,12 +42,12 @@ defineProps<{
   isDeleteButtonExist: boolean | undefined;
 }>();
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const emit = defineEmits<{
+  // eslint-disable-next-line no-unused-vars
   (event: 'delete-button-click', value: ClickEvent): void;
 }>();
 
 function onClick(e: ClickEvent) {
-  emit('delete-button-click', e); 
+  emit('delete-button-click', e);
 }
 </script>
