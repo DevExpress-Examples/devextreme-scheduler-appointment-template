@@ -28,9 +28,9 @@
 
 ## Documentation
 
-- [appointmentTooltipTemplate](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxScheduler/Configuration/#appointmentTooltipTemplate)
-- [appointmentTooltipRender](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxScheduler/Configuration/#appointmentTooltipRender)
-- [Customize Appointment Tooltip](https://js.devexpress.com/Documentation/Guide/UI_Components/Scheduler/Appointments/Customize_Appointment_Tooltip/)
+- [appointmentTooltipTemplate](https://js.devexpress.com/React/Documentation/ApiReference/UI_Components/dxScheduler/Configuration/#appointmentTooltipTemplate)
+- [appointmentTooltipRender](https://js.devexpress.com/React/Documentation/ApiReference/UI_Components/dxScheduler/Configuration/#appointmentTooltipRender)
+- [Customize Appointment Tooltip](https://js.devexpress.com/React/Documentation/Guide/UI_Components/Scheduler/Appointments/Customize_Appointment_Tooltip/)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
