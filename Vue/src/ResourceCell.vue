@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      :style="'background:' + employee.color"
+      :style="{ background: employee.color }"
       class="name"
     >
       <h2>{{ employee.text }}</h2>
@@ -10,7 +10,7 @@
       <img :src="employee.data.avatar">
     </div>
     <div
-      :style="'color:' + employee.color"
+      :style="{ color: employee.color }"
       class="info"
     >
       Age: {{ employee.data.age }}
@@ -19,52 +19,59 @@
     </div>
   </div>
 </template>
-<script lang='ts'>
 
-export default {
-  props: {
-    employee: {
-      type: Object,
-      default: () => {},
-    },
-  },
-};
+<script lang="ts" setup>
+interface EmployeeData {
+  avatar: string
+  age: number
+  discipline: string
+}
+
+interface Employee {
+  text: string
+  color: string
+  data: EmployeeData
+}
+
+defineProps<{
+  employee: Employee
+}>();
 </script>
-  <style>
-  .avatar {
-    width: 155px;
-    float: left;
-    overflow: hidden;
-    position: relative;
-    height: 125px;
-  }
 
-  .name {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
+<style>
+.avatar {
+  width: 155px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 125px;
+}
 
-  .name h2 {
-    color: #fff;
-    text-align: left;
-    padding: 0 0 5px 175px;
-    margin: 0;
-  }
+.name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 
-  .info {
-    width: auto;
-    text-align: left;
-    height: 100%;
-    font-size: 11pt;
-    font-weight: normal;
-    padding: 25px 20px;
-    color: #707070;
-  }
+.name h2 {
+  color: #fff;
+  text-align: left;
+  padding: 0 0 5px 175px;
+  margin: 0;
+}
 
-  .dx-color-scheme-contrast .info {
-    color: #fff;
-  }
-  </style>
+.info {
+  width: auto;
+  text-align: left;
+  height: 100%;
+  font-size: 11pt;
+  font-weight: normal;
+  padding: 25px 20px;
+  color: #707070;
+}
 
+.dx-color-scheme-contrast .info {
+  color: #fff;
+}
+</style>
