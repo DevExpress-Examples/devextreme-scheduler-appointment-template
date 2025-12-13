@@ -9,5 +9,4 @@ if (environment.production || !document.location.host.includes('localhost')) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-  // eslint-disable-next-line no-console
   .catch((err) => console.error(err));
