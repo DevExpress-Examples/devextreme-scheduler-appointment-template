@@ -95,15 +95,15 @@
 }
 
 .training-background-0 {
-  background-image: url("../public/images/icon-abs.png");
+  background-image: url("/images/icon-abs.png");
 }
 
 .training-background-1 {
-  background-image: url("../public/images/icon-step.png");
+  background-image: url("/images/icon-step.png");
 }
 
 .training-background-2 {
-  background-image: url("../public/images/icon-fitball.png");
+  background-image: url("/images/icon-fitball.png");
 }
 
 .dx-theme-material .name h2 {
