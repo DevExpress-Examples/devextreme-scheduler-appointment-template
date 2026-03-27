@@ -312,7 +312,6 @@ TesterMetadata.xml
 !*/wwwroot/images/**
 
 !*/wwwroot/Site.css
-!*/wwwroot/css/
 !*/wwwroot/css/Site.css
 !*/wwwroot/vendor.css
 *.DS_Store
