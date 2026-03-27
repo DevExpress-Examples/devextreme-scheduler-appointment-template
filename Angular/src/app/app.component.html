@@ -15,13 +15,13 @@
   dataCellTemplate="dataCellTemplate"
   appointmentTooltipTemplate="appointmentTooltipTemplate"
 >
-  <dxi-resource
+  <dxi-scheduler-resource
     fieldExpr="employeeID"
     [allowMultiple]="false"
     [dataSource]="resourcesDataSource"
     label="Employee"
   >
-  </dxi-resource>
+  </dxi-scheduler-resource>
 
   <ng-container *dxTemplate="let data of 'appointmentTooltipTemplate'">
     <!-- NOTE: You can use data.appointmentData.resouceId to obtain resource color -->

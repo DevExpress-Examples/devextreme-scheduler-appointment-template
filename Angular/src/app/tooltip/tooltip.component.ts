@@ -7,6 +7,7 @@ import { Appointment } from 'devextreme/ui/scheduler';
 @Component({
   selector: 'Tooltip',
   templateUrl: './tooltip.component.html',
+  standalone: false,
 })
 export class TooltipComponent {
   @Input() appointmentData!: Appointment;
