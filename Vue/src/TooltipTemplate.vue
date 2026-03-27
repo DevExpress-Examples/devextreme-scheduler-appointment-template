@@ -43,7 +43,6 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  // eslint-disable-next-line no-unused-vars
   (event: 'delete-button-click', value: ClickEvent): void;
 }>();
 
