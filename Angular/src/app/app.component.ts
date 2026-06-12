@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { DxSchedulerComponent } from 'devextreme-angular';
 import DataSource from 'devextreme/data/data_source';
 
@@ -11,6 +11,7 @@ import { Service } from './app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [Service],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class AppComponent {
